@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flaskapp</title>
+ 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block head %}
+    
+     {% endblock %}
+  </head>
+<body>
+    <nav>
+       
+        <ul class="navegador">
+           <a href="{{ url_for('home.home') }}"><img src="{{ url_for('static', filename='images/arbol.jpg') }}" alt="imagen_nav" id="imagen_nav"></a>
+           <li><a href="{{ url_for('soporte.soporte') }}">SOPORTE</a></li>
+           <li><a href="#">REPARACIONES</a></li>
+            <li><a href="{{ url_for('articulos.articulos') }}">ARTICULOS</a></li>
+            <li><a href="{{ url_for('celulares.celulares') }}">CELULARES</a></li>
+            
+            <li><a href="#">LOGIN</a></li>
+        </ul>
+    </nav>
+    <section class="contenido">
+      
+      {% block body %}
+      
+      {% endblock %}
+      
+    </section>
+
+    <footer>
+      <h2>footer</h2>
+          </footer>
+</body>
+</html>

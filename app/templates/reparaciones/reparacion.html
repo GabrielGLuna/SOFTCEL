@@ -1,0 +1,23 @@
+{% extends 'index.html' %} 
+ 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulos.css') }}">
+{% endblock %}
+
+{% block body %}
+<div id="titulo"><h1 id="titulo_art">ARTICULOS</h1></div>
+           
+
+     <section class="seccion_arti">
+       
+        <div class="articulo_card"> 
+             <div class="articulo" > {{ rep.nombre }} </div>
+             <div class="articulo" >{{ rep.caracteristicas }}</div>
+             <div class="articulo">{{ rep.costo }}</div>
+             <div class="articulo">{{ rep.fecha_entrada }}</div>
+             <div class="articulo">{{ rep.fecha_entrega }}</div>
+             <div class="articulo">{{ rep.idCliente }}</div>
+            </div>
+        
+        </section>
+        {% endblock %}

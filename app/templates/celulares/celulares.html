@@ -1,0 +1,26 @@
+{% extends 'index.html' %} 
+ 
+{% block  body %}
+    
+<table>
+    <tbody>
+        <th>
+            {% for cel in cels %}
+            <tr>
+                <td> {{ cel.id }} </td>
+                <td> {{ cel.marca }} </td>
+                <td> {{ cel.modelo }} </td>
+                <td> {{ cel.color }} </td>
+                <td> {{ cel.stock }} </td>
+                <td> {{ cel.almacenamiento }} </td>
+                <td> {{ cel.idProveedor }} </td>
+                <td> {{ cel.precio }} </td>
+            </tr>
+            {% endfor %}
+        </th>
+    </tbody>
+</table>
+
+
+{% endblock %}
+

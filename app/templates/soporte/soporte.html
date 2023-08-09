@@ -1,0 +1,47 @@
+{% extends 'index.html' %} 
+ 
+
+
+{% block  body %}
+  <form  method="post">
+      
+      {{ form.csrf_token }}
+        
+        <div>
+          {{ form.email.label }}
+          {{ form.email() }}
+          {% if form.email.errors %}
+          {% for error in form.email.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+          {% endif %}
+        </div>
+        
+        <div>
+          {{ form.telefono.label }}
+          {{ form.telefono() }}
+          {% if form.telefono.errors %}
+          {% for error in form.telefono.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+          {% endif %}
+                
+        </div>
+        <div>
+          {{ form.queja.label }}
+          {{ form.queja() }}
+          {% if form.queja.errors %}
+          {% for error in form.queja.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+          {% endif %}
+          
+        </div>
+        <div>
+          {{ form.submit(class="btn") }}
+        </div>
+        
+  </form>   
+
+{% endblock %}
+

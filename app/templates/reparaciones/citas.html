@@ -1,0 +1,38 @@
+{% extends 'index.html' %} 
+ 
+
+
+{% block  body %}
+  <form  method="post">
+      
+      {{ form.csrf_token }}
+        
+        <div>
+          {{ form.dispositivo.label }}
+          {{ form.dispositivo() }}
+          {% if form.dispositivo.errors %}
+          {% for error in form.dispositivo.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+          {% endif %}
+        </div>
+        
+        <div>
+          {{ form.fecha.label }}
+          {{ form.fecha() }}
+          {% if form.fecha.errors %}
+          {% for error in form.fecha.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+          {% endif %}
+                
+        </div>
+       
+        <div>
+          {{ form.submit(class="btn") }}
+        </div>
+        
+  </form>   
+
+{% endblock %}
+

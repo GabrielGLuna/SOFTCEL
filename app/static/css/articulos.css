@@ -1,0 +1,51 @@
+.seccion_arti{
+    display: flex;
+    flex-flow: row nowrap;
+    height: 60%;
+    margin-bottom: 2%;
+    width: 80%;
+}
+.articulo_card{
+    background-color: aliceblue;
+    margin-right: 1%;
+    padding: 2%;
+    justify-content: center;
+    border-radius: 10%;
+    align-items: center;
+    height: 350px;
+    width: 100%;
+    margin: 1%;
+    font-size: 120%;
+}
+.articulo{
+    text-align: center;
+    justify-content: center;
+}
+#titulo_art{
+    padding: 2%;
+    text-align: center;
+    background-color: aliceblue;
+}
+#titulo{
+    margin-bottom: 4%;
+}
+.img_articulo{
+    justify-content: center;
+    margin: 5%;
+    width: 90%;
+    height: 120px;
+}
+.vermas{
+    height: 350px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.vermas h1{
+    color: aliceblue;
+    font-weight: 900;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

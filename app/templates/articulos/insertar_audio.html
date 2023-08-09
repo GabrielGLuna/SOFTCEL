@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Productos
+{% endblock %}
+
+{% block body %}
+<h1>Crea </h1>
+<form method="post" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <div>
+        {{ form.marca.label }}
+        {{ form.marca() }}
+    </div>
+    <div>
+        {{ form.modelo.label }}
+        {{ form.modelo() }}
+    </div>
+    <div>
+        {{ form.conexion.label }}
+        {{ form.conexion() }}
+    </div>
+    <div>
+        {{ form.tipo.label }}    
+        {{ form.tipo() }}
+    </div>
+    <div>
+        {{ form.stock.label }}
+        {{ form.stock() }}
+    </div>
+    <div>
+        {{ form.precio.label }}
+        {{ form.precio() }}
+    </div>
+    {% if image %}
+    <div>
+        <img src="{{ url_for('static', filename='images/Audio_img/' + image) }}" alt="" width="200px">
+    </div>
+    {% endif %}
+    <div>
+        {{ form.image.label }}
+        {{ form.image() }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}

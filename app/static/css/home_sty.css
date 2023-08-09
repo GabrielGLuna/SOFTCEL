@@ -1,0 +1,89 @@
+#bienv{
+    text-align: center;
+    color: aliceblue;
+    margin: 0 auto;
+}
+.carrousel{
+    width: 100%;
+    height: 50%;
+    overflow: hidden; 
+    margin: 0 auto;
+
+}
+.carrousel ul{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 0;
+    width: 400%;  
+    height: 350px;  
+    margin: 0 auto ;
+    animation: slide 16s infinite alternate ease-in-out;
+}
+.carrousel li{
+    list-style: none;
+    width: 100%;
+}
+.carrousel img{
+    width: 100%;
+    height: 650px;  
+    
+}
+@keyframes slide  {
+    0%  {margin-left: 0%;}
+   20% {margin-left: 0%;}
+
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+
+    75% {margin-left: -300%;}
+    100% {margin-left: -300%;}
+   
+
+}
+.seccion{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+   
+}
+.secciones{
+    margin: 0 auto;
+    width: 100%;
+    height: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    width: 33%;
+    height: 60%;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid grey;
+} 
+
+.img_card{
+    width: 85%;
+    margin: 7.5%;
+    height: 250px;
+}
+
+.descripcion_card{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 5%;
+}
+.acerca_de{
+    width: 90%;
+    padding: 5%;
+    background-color: aliceblue;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
