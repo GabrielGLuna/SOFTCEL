@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, abort
+import traceback
 
 articulos_views = Blueprint('articulos',__name__)
 
@@ -15,17 +16,36 @@ def articulos():
     auds = Audio.get_all()
     return render_template('articulos/articulos.html',accs=accs, auds = auds)
 
+@articulos_views.route("/articulos/cli")
+def articulos_cli():
+    accs = Accesorio.get_all_art()
+    
+    auds = Audio.get_all()
+    return render_template('articulos/articulos_cli.html',accs=accs, auds = auds)
+
 @articulos_views.route("/accesorios")
 def accesorios():
     accs = Accesorio.get_all()
     
     return render_template('articulos/accesorios.html',accs=accs)
 
+@articulos_views.route("/accesorios/cli")
+def accesorios_cli():
+    accs = Accesorio.get_all()
+    
+    return render_template('articulos/accesorios_cli.html',accs=accs)
+
 @articulos_views.route("/audios")
 def audios():
     auds = Audio.get_all()
     
     return render_template('articulos/audios.html',auds=auds)
+
+@articulos_views.route("/audios/cli")
+def audios_cli():
+    auds = Audio.get_all()
+    
+    return render_template('articulos/audios_cli.html',auds=auds)
 
 @articulos_views.route("/articulos/crear_accesorio")
 def crear_accesorio():
@@ -65,11 +85,26 @@ def accesorio(id):
     if accesorio is None: abort(404)
     return render_template('articulos/accesorio.html', accesorio=accesorio)
 
+@articulos_views.route('/articulos/<int:id>/accesorio/cli')
+def accesorio_cli(id):
+    accesorio = Accesorio.get(id)
+    if accesorio is None: abort(404)
+    return render_template('articulos/accesorio_cli.html', accesorio=accesorio)
+
+
+
+
 @articulos_views.route('/articulos/<int:id>/audio/')
 def audio(id):
     audio = Audio.get(id)
     if audio is None: abort(404)
     return render_template('articulos/audio.html', audio=audio)
+
+@articulos_views.route('/articulos/<int:id>/audio/cli')
+def audio_cli(id):
+    audio = Audio.get(id)
+    if audio is None: abort(404)
+    return render_template('articulos/audio_cli.html', audio=audio)
 
 @articulos_views.route('/product/<int:id>/delete_acc/', methods=['POST'])
 def delete_acc(id):

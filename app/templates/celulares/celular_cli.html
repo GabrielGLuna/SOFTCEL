@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'index_cliente.html' %}
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/articulos.css') }}">
@@ -14,7 +14,6 @@
     <div class="articulo">{{ celular.almacenamiento }}</div>
     <div class="articulo">{{ celular.precio }}</div>
     <img src="{{ url_for('static', filename='images/Celulares/' + celular.image) }}" alt="" width="300px">
-    </form>
     <p>hola</p>
     
 

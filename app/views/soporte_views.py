@@ -9,7 +9,6 @@ from forms.soporte_form import CreateQuejaForm
 @soporte_views.route("/soporte/", methods = ('GET','POST'))
 def soporte():
     form = CreateQuejaForm()
- 
 
     if form.validate_on_submit():
       email = form.email.data

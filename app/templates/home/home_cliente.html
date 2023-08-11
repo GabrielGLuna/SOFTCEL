@@ -1,0 +1,88 @@
+{% extends 'index_cliente.html' %} 
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home_sty.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="carrousel">
+    <ul>
+      <li><img src="{{ url_for('static', filename='images/car1.jpg' ) }}" alt=""></li>
+      <li><img src="{{ url_for('static', filename='images/car2.jpeg' ) }}" alt=""></li>
+      <li><img src="{{ url_for('static', filename='images/car3.jpg' ) }}" alt=""></li>
+      <li><img src="{{ url_for('static', filename='images/car4.jpg' ) }}" alt=""></li>
+    </ul>
+  </div>
+
+  <section id="bienv">
+    <h2>BIENVENIDO A SOFTCELL</h2>
+            </section>
+    
+            <div class="seccion">
+    
+                <div class="secciones">
+                  
+                    <figure class="card">
+                        <a href="https://www.altonivel.com.mx/tecnologia/que-telefono-comprar-los-10-mejores-celulares-del-mercado-en-2023/#:~:text=Los%2010%20mejores%20celulares%20del%20mercado%20en%202023,Xiaomi%2011%20Lite%205G%20NE%20...%20M%C3%A1s%20elementos">
+                        <img src="{{ url_for('static', filename='images/art1.jpg' ) }}" alt="" class="img_card">
+                        <div class="descripcion_card">
+                            Si quieres revisar los mas novedosos Telefonos celulares puedes ingresar aqui!
+                        </div>
+                    </a>
+                    </figure>
+                   
+                    <figure class="card">
+                        <a href="https://global.techradar.com/es-mx/best/los-mejores-audifonos-inalambricos-del-2023">
+                        <img src="{{ url_for('static', filename='images/auri.jpg' ) }}" alt="" class="img_card">
+                        <div class="descripcion_card">
+                            Aqui encontraras las mejores recomendaciones acerca de audifonos de buena calidad!
+                        </div>
+                    </a>
+                    </figure>
+                    <figure class="card">
+                        <a href="https://cnnespanol.cnn.com/2023/01/05/tendencias-tecnologicas-marcaran-2023-trax/">
+                        <img src="{{ url_for('static', filename='images/tec.jpg' ) }}" alt="" class="img_card">
+                        <div class="descripcion_card">
+                            Si quieres saber mas de tecnologia puedes ingresar aqui
+                        </div>
+                        </a>
+                    </figure>
+                </div>
+                <div class="secciones">
+                    <figure class="card">
+                        <a href="{{ url_for('soporte.soporte') }}">
+                        <img src="{{ url_for('static', filename='images/sop.png' ) }}" alt="" class="img_card">
+                        <div class="descripcion_card">
+                            Si tienes alguna queja o seugerencia de nuestro sitio puedes acceder desde aqui
+                        </div>
+                        </a>
+                    </figure>
+                    <figure class="card">
+                        <a href="{{ url_for('articulos.articulos') }}">
+                        <img src="{{ url_for('static', filename='images/artic.jpg' ) }}" alt="" class="img_card">
+                        <div class="descripcion_card">
+                            Si quieres revisar nuestro catalogo de articulos puedes acceder desde aqui
+                        </div>
+                        </a>
+                    </figure>
+
+                    <figure class="card">
+                        <a href="{{ url_for('celulares.celulares') }}">
+                            <img src="{{ url_for('static', filename='images/cell.jpg' ) }}" alt="" class="img_card">
+                            <div class="descripcion_card">
+                                Puedes revisar los celulares disponibles en nuestro inventario
+                            </div>
+                        </a>
+                    </figure>
+                </div>
+            </div>
+            
+            <div class="acerca_de">
+                <h1>ACERCA DE NOSOTROS</h1>
+                <p>Somos un sitio web especializado en el manejo de Articulos y Celulares, nosotros nos enfocamos en la administracion de inventarios en sitios web para que tu experiencia en sitios como este sea de lo más cómoda y funcional posible</p>
+            </div>
+           
+           
+{% endblock %}

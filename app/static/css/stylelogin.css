@@ -1,0 +1,118 @@
+/* Estilos para el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ea84ff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el contenedor principal del formulario */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para encabezados de nivel 1 (h1) */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+form {
+    text-align: center;
+}
+
+/* Estilos para las etiquetas de formulario (labels) */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los campos de entrada de texto */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 30%; /* Cambio el ancho de los campos */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Esquinas redondeadas */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+/* Estilos cuando el foco está en los campos de entrada */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #00c3ff;
+}
+
+/* Estilos para el botón de envío del formulario */
+input[type="submit"] {
+    width: 20%; /* Cambio el ancho del botón */
+    background-color: #ae00ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Estilos cuando el cursor se coloca sobre el botón de envío */
+input[type="submit"]:hover {
+    background-color: #35eb81;
+    color: black;
+}
+/* Estilos para los enlaces */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #1d334b;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Estilos cuando el cursor se coloca sobre los enlaces */
+a:hover {
+    color: #ffffff;
+}
+
+/* Estilos para las alertas */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    font-size: 16px;
+}
+
+/* Estilos para las alertas de éxito */
+.alert-success {
+    background-color: #e1e452;
+    color: #ffffff;
+    border: 1px solid #c5c73c;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Estilos para las alertas de error */
+.alert-error {
+    background-color: #f34856;
+    color: #ffffff;
+    border: 1px solid #eb3040;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+}

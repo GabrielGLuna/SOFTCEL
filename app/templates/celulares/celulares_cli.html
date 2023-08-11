@@ -1,4 +1,4 @@
-{% extends 'index.html' %} 
+{% extends 'index_cliente.html' %} 
  
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
@@ -8,10 +8,10 @@
     
 <section class="seccion">
     {% for cel in cels %}
-    <a href="{{ url_for('celulares.celular', id=cel.id) }}">
+    <a href="{{ url_for('celulares.celular_cli',  id=cel.id) }}">
     <div class="card"> 
     <img src="{{ url_for('static', filename='images/Celulares/' + cel.image) }}" alt="" width="300px" class="img_articulo">
-    <div class="item">{{ cel.id }} </div>
+
     <div class="item">{{ cel.marca }} </div>
     <div class="item">{{ cel.modelo }}</div>
     <div class="item"> {{ cel.color }} </div>
@@ -20,7 +20,7 @@
     <div class="item"> {{ cel.idProveedor }} </div>
     <div class="item"> {{ cel.precio }} </div>
     </div>
-</a>
+    </a>
     {% endfor %}
 </section>
 

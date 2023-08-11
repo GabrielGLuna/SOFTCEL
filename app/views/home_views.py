@@ -3,6 +3,10 @@ from flask import Blueprint, render_template
 home_views = Blueprint('home',__name__)
 
 @home_views.route("/")
-def home():
+def home_user():
       
-    return render_template('home/home.html')
+    return render_template('home/home_user.html')
+
+@home_views.route("/cliente")
+def home_cliente():
+    return render_template('home/home_cliente.html')

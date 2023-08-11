@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylelogin.css') }}">
+</head>
+<body>
+    <h1>Registro</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="alert alert-error">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+    <form method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+        <br>
+        <label for="correo">Correo:</label>
+        <input type="email" name="correo" required>
+        <br>
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" required>
+        <br>
+        <input type="submit" value="Registrarse">
+    </form>
+    <a href="{{ url_for('login') }}">Volver al login</a>
+</body>
+</html>

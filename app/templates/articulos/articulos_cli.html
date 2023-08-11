@@ -1,0 +1,59 @@
+{% extends 'index_cliente.html' %} 
+ 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulos.css') }}">
+{% endblock %}
+
+{% block  body %}
+
+ <div id="titulo"><h1 id="titulo_art">ARTICULOS</h1></div>
+
+ <div class="seccionn">
+     <section class="seccion_arti">
+         {% for acc in accs %}
+        <div class="articulo_card"> 
+            <a href="{{ url_for('articulos.accesorio_cli', id=acc.id) }}" class="btn">
+            <img src="{{ url_for('static', filename='images/Accesorios/' + acc.image) }}" alt="" width="300px" class="img_articulo">
+             <div class="articulo" ><p>${{ acc.precio }}</p> </div>
+             <div class="articulo">{{ acc.categoria }}</div>
+             <div class="articulo">{{ acc.tipo }}</div>
+             <div class="articulo">{{ acc.color }}</div>
+             <div class="articulo">{{ acc.stock }}</div>
+             <div class="articulo"> {{ acc.especificacionExtra }}</div>
+        
+             </a>
+            </div>
+
+            {% endfor %}
+            <a href="{{ url_for('articulos.accesorios_cli') }}">
+                <div class="vermas">
+                    <h1> >> </h1>
+                </div>
+                </a>
+        </section>
+      
+ </div>
+        <section class="seccion_arti">
+            {% for aud in auds %}
+            <div class="articulo_card"> 
+                <a href="{{ url_for('articulos.audio_cli', id=aud.id) }}" class="btn">
+
+                <img src="{{ url_for('static', filename='images/Audio_img/' + aud.image) }}" alt="" width="300px" class="img_articulo">
+                <div class="articulo">{{ aud.id }} </div>
+                <div class="articulo">{{ aud.marca }}</div>
+                <div class="articulo">{{ aud.modelo }}</div>
+                <div class="articulo">{{ aud.conexion }}</div>
+                <div class="articulo">{{ aud.tipo }}</div>
+                <div class="articulo">{{ aud.stock }}</div>
+                <div class="articulo">{{ aud.precio }}</div>
+                </a>
+            </div>
+          
+            {% endfor %}
+            <a href="{{ url_for('articulos.audios_cli') }}">
+                <div class="vermas">
+                    <h1> >> </h1>
+                </div>
+                </a>
+           </section>
+{% endblock %}

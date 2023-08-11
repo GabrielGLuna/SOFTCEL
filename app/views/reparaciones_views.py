@@ -8,21 +8,19 @@ from models.cliente import Cliente
 from models.reparacion import Reparacion
 from models.usuarios import Usuario
 
-@reparaciones_views.route("/<int:id>/Reparacion")
-def reparacion(id):
-    usuario = Usuario.get(id)
-    if usuario is None: abort(404)
-    rep = Reparacion.get(id)
-    return render_template('reparaciones/reparacion.html', rep=rep)
+@reparaciones_views.route("/Reparacion")
+def reparacion():
+    reps = Reparacion.get_all()
+    return render_template('reparaciones/reparacion.html', reps=reps)
 
-@reparaciones_views.route("/reparaciones/<int:id>/citas/", methods = ('GET','POST'))
-def citas(id):
+@reparaciones_views.route("/reparaciones/citas/", methods = ('GET','POST'))
+def citas():
     form = CreateCita()
     if form.validate_on_submit():
-      cliente = Cliente.get(id)
+      email_cliente = form.email_cliente.data
       dispositivo = form.dispositivo.data
       fecha = form.fecha.data
-      cita = Cita(idCliente=cliente.idCliente, dispositivo=dispositivo, fecha=fecha)
+      cita = Cita(email_cliente=email_cliente, dispositivo=dispositivo, fecha=fecha)
       cita.save()
-      return redirect(url_for('reparaciones.citas', id=id))
+      return redirect(url_for('reparaciones.citas'))
     return render_template('reparaciones/citas.html', form=form)

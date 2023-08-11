@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Celulares
+{% endblock %}
+
+{% block body %}
+<h1>Crea </h1>
+<form method="post" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <div>
+        {{ form.marca.label }}
+        {{ form.marca() }}
+    </div>
+    <div>
+        {{ form.modelo.label }}
+        {{ form.modelo() }}
+    </div>
+    <div>
+        {{ form.color.label }}
+        {{ form.color() }}
+    </div>
+    <div>
+        {{ form.idCel.label }}
+        {{ form.idCel() }}
+    </div>
+   
+    <div>
+        {{ form.stock.label }}
+        {{ form.stock() }}
+    </div>
+    <div>
+        {{ form.almacenamiento.label }}
+        {{ form.almacenamiento() }}
+    </div>
+    <div>
+        {{ form.condicion.label }}
+        {{ form.condicion() }}
+    </div>
+    <div>
+        {{ form.idProveedor.label }}
+        {{ form.idProveedor() }}
+    </div>
+    <div>
+        {{ form.precio.label }}
+        {{ form.precio() }}
+    </div>
+    {% if image %}
+    <div>
+        <img src="{{ url_for('static', filename='images/Celulares/' + image) }}" alt="" width="200px">
+    </div>
+    {% endif %}
+    <div>
+        {{ form.image.label }}
+        {{ form.image() }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}
