@@ -1,12 +1,17 @@
-{% extends 'index_cliente.html' %}
+{% extends 'index_admin.html' %}
 
 {% block title %}
     Agregar Reparación
 {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
 
-{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulo.css') }}">
+{% endblock %}
+
+{% block body %}
 <div class="all">
-    <h1>Agregar Reparación</h1>
+    <div id="titulo"><h1 id="titulo_art">AGREGAR REPARACION</h1></div>  
     <form method="POST" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <div class="form-group">
@@ -49,7 +54,7 @@
             {{ form.repimage.label }}
             {{ form.repimage(class="form-control-file") }}
         </div>
-        <div class="form-group boton">
+        <div class="form-group">
             {{ form.submit(class="btn btn-primary") }}
         </div>
     </form>

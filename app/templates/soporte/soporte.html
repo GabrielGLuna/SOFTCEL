@@ -1,6 +1,10 @@
 {% extends 'index_cliente.html' %} 
  
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulo.css') }}">
+{% endblock %}
 
 {% block  body %}
   <form  method="post">

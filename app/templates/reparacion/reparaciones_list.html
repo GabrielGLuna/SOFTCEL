@@ -3,9 +3,13 @@
 {% block title %}
 Categories
 {% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
+{% endblock %}
 
 {% block body %}
-<a href="{{ url_for('Reparacion.agregar_reparacion') }}" class="btn btn-primary">Agregar dispositivo</a>
+<div id="titulo"><h1 id="titulo_art">LISTA DE REPARACIONES</h1></div>    
+<button class="boton" id="btn_ins_rep"><a href="{{ url_for('Reparacion.agregar_reparacion') }}" class="btn btn-primary">Agregar dispositivo</a></button>
     <table >
         <thead>
             <tr>
@@ -34,6 +38,10 @@ Categories
                     <td>{{ rep.folio }}</td>
                     <td>{{ rep.estatus }}</td>
                     <td>{{ rep.comentarios }}</td>
+                    <td>
+                        <button class="btn_editar"><a href="{{ url_for('Reparacion.editar_reparacion', id=rep.id_reparacion) }}">Editar </a></button>
+                        <button class="btn_delete"><a href="{{ url_for('Reparacion.eliminar_reparacion', id=rep.id_reparacion) }}">Eliminar</a></button>
+                    </td>
                     
                 
                 </tr>

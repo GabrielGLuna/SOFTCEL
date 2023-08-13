@@ -1,6 +1,6 @@
 #bienv{
     text-align: center;
-    color: aliceblue;
+    color: gray;
     margin: 0 auto;
 }
 .carrousel{
@@ -65,7 +65,7 @@
     background-color: white;
     border-radius: 8px;
     text-align: center;
-    border: 2px solid grey;
+    border: 2px solid #5544AA;
 } 
 
 .img_card{

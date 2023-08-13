@@ -29,28 +29,36 @@ def accesorios(page=1):
 
     accs = Accesorio.get_all(limit=limit, page=page)
     total_acc = Accesorio.count()
-    pages = total_acc // (total_acc//2)
+    pages = total_acc // (total_acc//3)
    
     
     return render_template('articulos/accesorios.html',accs=accs, pages=pages)
 
-@articulos_views.route("/accesorios/cli")
-def accesorios_cli():
-    accs = Accesorio.get_all()
+@articulos_views.route("/accesorios/cli/<int:page>")
+def accesorios_cli(page=1):
+    limit = 8
+    accs = Accesorio.get_all(limit=limit, page=page)
+    total_acc = Accesorio.count()
+    pages = total_acc // (total_acc//3)
+   
     
-    return render_template('articulos/accesorios_cli.html',accs=accs)
+    return render_template('articulos/accesorios_cli.html',accs=accs, pages=pages)
 
-@articulos_views.route("/audios")
-def audios():
-    auds = Audio.get_all()
-    
-    return render_template('articulos/audios.html',auds=auds)
+@articulos_views.route("/audios/<int:page>")
+def audios(page=1):
+    limit = 8
+    auds = Audio.get_all(limit=limit, page=page)
+    total_aud=Audio.count()
+    pages= total_aud//(total_aud//3)
+    return render_template('articulos/audios.html',auds=auds, pages=pages)
 
-@articulos_views.route("/audios/cli")
-def audios_cli():
-    auds = Audio.get_all()
-    
-    return render_template('articulos/audios_cli.html',auds=auds)
+@articulos_views.route("/audios/cli/<int:page>")
+def audios_cli(page=1):
+    limit = 8
+    auds = Audio.get_all(limit=limit, page=page)
+    total_aud=Audio.count()
+    pages= total_aud//(limit//3)
+    return render_template('articulos/audios_cli.html',auds=auds, pages=pages)
 
 @articulos_views.route("/articulos/crear_accesorio",  methods=['GET', 'POST'])
 def crear_accesorio():

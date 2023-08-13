@@ -1,12 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'index_admin.html' %}
 
 {% block title %}
 Editar Reparación
 {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
+{% endblock %}
 
-{% block content %}
+{% block body %}
 <div class="editar-reparacion">
-    <h1>Editar Reparación</h1>
+    <div id="titulo"><h1 id="titulo_art">AGREGAR REPARACION</h1></div>  
     <form method="post" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <div class="form-group">
@@ -33,7 +36,7 @@ Editar Reparación
             {{ form.estatus.label }}
             {{ form.estatus(class="form-control") }}
         </div>
-        </div>
+        
         <div class="form-group">
             {{ form.fecha_entrada.label }}
             {{ form.fecha_entrada(class="form-control") }}
@@ -50,7 +53,7 @@ Editar Reparación
             {{ form.repimage.label }}
             {{ form.repimage(class="form-control-file") }}
         </div>
-        <div class="boton">
+        <div class="">
             {{ form.submit(class="btn btn-primary") }}
         </div>
     </form>

@@ -18,12 +18,12 @@ class Rep:
         self.repimage=repimage
 
     @staticmethod
-    def get_all ():
-        
+    def get_all (limit=8, page=1):
+        offset = limit * page - limit
         reparaciones = []
         with mydb.cursor(dictionary=True) as cursor: 
-            sql = f"select * from reparacion"
-            cursor.execute(sql)
+            sql = f"select * from reparacion LIMIT { limit } OFFSET { offset }"
+            cursor.execute(sql) 
             result = cursor.fetchall()
             for reparacion in result:
                 reparacion_obj = Rep(

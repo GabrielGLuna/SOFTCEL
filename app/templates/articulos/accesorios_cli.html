@@ -1,16 +1,16 @@
 {% extends 'index_cliente.html' %} 
  
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/articulos.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
 {% endblock %}
 
 {% block body %}
-<div id="titulo"><h1 id="titulo_art">ARTICULOS</h1></div>
+<div id="titulo"><h1 id="titulo_art">ACCESORIOS</h1></div>
            
 
-     <section class="seccion_arti">
+     <section class="seccion">
          {% for acc in accs %}
-        <div class="articulo_card"> 
+        <div class="card"> 
             <a href="{{ url_for('articulos.accesorio_cli', id=acc.id) }}" class="btn">
             <img src="{{ url_for('static', filename='images/Accesorios/' + acc.image) }}" alt="" width="300px" class="img_articulo">
              <div class="articulo" > {{ acc.precio }} </div>
@@ -25,4 +25,7 @@
             
             {% endfor %}
         </section>
+        {% for i in range(pages) %}
+        <a href="{{ url_for('articulos.accesorios_cli', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
+            {% endfor %}
         {% endblock %}

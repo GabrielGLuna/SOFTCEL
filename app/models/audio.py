@@ -67,5 +67,13 @@ class Audio :
             mydb.commit()
             return self.id
         
+    @staticmethod
+    def count():
+        with mydb.cursor(dictionary=True) as cursor:
+            sql = "SELECT count(idAudio) as total FROM audio"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result['total']
+        
       
         

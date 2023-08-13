@@ -14,7 +14,7 @@ class Cita:
             with mydb.cursor() as cursor:
                
                 sql = "INSERT INTO citas(email_cliente, dispositivo, fecha) VALUES(%s, %s, %s)"
-                val = (self.email_cliente, self.dispositivo, self.fecha)
+                val = (self.email_cliente, self.dispositivo, self.fecha,self.id)
                 cursor.execute(sql, val)
                 mydb.commit()
                 self.id = cursor.lastrowid
@@ -45,6 +45,16 @@ class Cita:
             return citas
         
     @staticmethod
+    def get(id):
+        with mydb.cursor(dictionary=True) as cursor:
+            sql = f"SELECT * FROM citas WHERE idcita = { id }"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            print(result)
+            cita = Cita(result["email_cliente"], result["dispositivo"], result["fecha"],id)
+            return cita
+        
+    @staticmethod
     def count():
         with mydb.cursor(dictionary=True) as cursor:
             sql = "SELECT count(idcita) as total FROM citass"
@@ -52,3 +62,13 @@ class Cita:
             result = cursor.fetchone()
             return result['total']
        
+    @staticmethod
+    def eliminar_reparacion(id):
+        with mydb.cursor() as cursor:
+            sql = "DELETE FROM citas WHERE idcita = %s"
+            cursor.execute(sql, (id,))
+            mydb.commit()
+
+
+
+    

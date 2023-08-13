@@ -2,11 +2,12 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/articulos.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulo.css') }}">
 {% endblock %}
 
 {% block body %}
 
-<div class="articulo_card">
+<div class="tarjeta">
     <div class="articulo">{{ celular.marca }} </div>
     <div class="articulo">{{ celular.modelo }}</div>
     <div class="articulo">{{ celular.color }}</div>

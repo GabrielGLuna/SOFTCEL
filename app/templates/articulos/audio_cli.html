@@ -1,12 +1,13 @@
 {% extends 'index_cliente.html' %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/articulos.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulo.css') }}">
 {% endblock %}
 
 {% block body %}
 
-<div class="articulo_card">
+<div class="tarjeta">
     <img src="{{ url_for('static', filename='images/Audio/' + audio.image) }}" alt="" width="300px">
     <div class="articulo">{{ audio.marca }} </div>
     <div class="articulo">{{ audio.modelo }}</div>
@@ -14,17 +15,7 @@
     <div class="articulo">{{ audio.tipo }}</div>
     <div class="articulo">{{ audio.stock }}</div>
     <div class="articulo">{{ audio.precio}}</div>
-   
-    <a href="{{ url_for('articulos.update_audio', id=audio.id) }}">
-        <i class="fa fa-pencil">EDITAR</i>
-    </a>
-    <form action="{{ url_for('articulos.delete_aud', id=audio.id) }}" method="post">
-        <button type="submit" onclick="return confirm('Seguro?')">
-            <i class="fa fa-trash">DELETE</i>
-        </button>
-    </form>
-    <p>hola</p>
-    
+    <img src="{{ url_for('static', filename='images/Audio_img/' + audio.image) }}" alt="" width="300px">
 
 </div>
 {% endblock %}

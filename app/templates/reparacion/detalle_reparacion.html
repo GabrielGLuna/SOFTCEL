@@ -3,10 +3,15 @@
 {% block title %}
 Detalles de Reparación
 {% endblock %}
+{% block head %}
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulo.css') }}">
+{% endblock %}
 
 {% block body %}
 <div>
-    <div class="detalle-card">
+    <div class="tarjeta">
     <img src="{{ url_for('static', filename='images/reparaciones/' ~ reparacion.repimage) }}" alt="Imagen de Reparación", width="300px">
     <h1>Detalles de Reparación</h1>
     <h2>Teléfono: {{ reparacion.nombre }}</h2>

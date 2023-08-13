@@ -1,7 +1,7 @@
 {% extends 'index_cliente.html' %} 
  
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/articulos.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
 {% endblock %}
 
 {% block  body %}
@@ -9,9 +9,9 @@
  <div id="titulo"><h1 id="titulo_art">ARTICULOS</h1></div>
 
  <div class="seccionn">
-     <section class="seccion_arti">
+     <section class="seccion_articulos">
          {% for acc in accs %}
-        <div class="articulo_card"> 
+        <div class="card"> 
             <a href="{{ url_for('articulos.accesorio_cli', id=acc.id) }}" class="btn">
             <img src="{{ url_for('static', filename='images/Accesorios/' + acc.image) }}" alt="" width="300px" class="img_articulo">
              <div class="articulo" ><p>${{ acc.precio }}</p> </div>
@@ -25,17 +25,17 @@
             </div>
 
             {% endfor %}
-            <a href="{{ url_for('articulos.accesorios_cli') }}">
+            <a href="{{ url_for('articulos.accesorios_cli', page=1) }}">
                 <div class="vermas">
-                    <h1> >> </h1>
+                    <h1> VER MAS </h1>
                 </div>
                 </a>
         </section>
       
  </div>
-        <section class="seccion_arti">
+        <section class="seccion_articulos">
             {% for aud in auds %}
-            <div class="articulo_card"> 
+            <div class="card"> 
                 <a href="{{ url_for('articulos.audio_cli', id=aud.id) }}" class="btn">
 
                 <img src="{{ url_for('static', filename='images/Audio_img/' + aud.image) }}" alt="" width="300px" class="img_articulo">
@@ -50,9 +50,9 @@
             </div>
           
             {% endfor %}
-            <a href="{{ url_for('articulos.audios_cli') }}">
+            <a href="{{ url_for('articulos.audios_cli', page=1) }}">
                 <div class="vermas">
-                    <h1> >> </h1>
+                    <h1> VER MAS </h1>
                 </div>
                 </a>
            </section>

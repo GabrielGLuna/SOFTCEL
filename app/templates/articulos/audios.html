@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block body %}
-<div id="titulo"><h1 id="titulo_art">ARTICULOS</h1></div>
+<div id="titulo"><h1 id="titulo_art">AUDIO</h1></div>
            
 
      <section class="seccion">
          {% for aud in auds %}
+         <a href="{{ url_for('articulos.audio', id=aud.id) }}">
         <div class="card"> 
             <img src="{{ url_for('static', filename='images/Audio_img/' + aud.image) }}" alt="" width="300px" class="img_articulo">
              <div class="item" > {{ aud.marca }} </div>
@@ -19,6 +20,10 @@
              <div class="item">{{ aud.stock }}</div>
              <div class="item">{{ aud.precio }}</div>
             </div>
+         </a>
             {% endfor %}
         </section>
+        {% for i in range(pages) %}
+        <a href="{{ url_for('articulos.audios', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
+            {% endfor %}
         {% endblock %}

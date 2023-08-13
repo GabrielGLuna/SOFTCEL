@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   background-color: #333333;
+    background-color: #CCAAff;
 }
 nav {
     width: 100%;
@@ -17,7 +17,7 @@ nav {
 nav ul {
     padding-left: 0;
     justify-content: end;
-    margin-right: 15%;
+    margin-right: 17.5%;
 }
 
 nav li {
@@ -34,7 +34,7 @@ nav li a {
     text-decoration: none;
     text-align: center;
     color: black;
-    font-weight: 600;
+    font-weight: 550;
     padding-top: 10px;
 }
 nav li span{
@@ -44,7 +44,7 @@ nav li span{
     text-decoration: none;
     text-align: center;
     color: black;
-    font-weight: 600;
+    font-weight: 500;
     padding-top: 10px;
 }
 nav li span:hover{
@@ -53,7 +53,7 @@ nav li span:hover{
 }
 
 nav li a:hover {
-    background-color: black;
+    background-color: #ae00ff;
     color: aliceblue;
 }
 #imagen_nav{

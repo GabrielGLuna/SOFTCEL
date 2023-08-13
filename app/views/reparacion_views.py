@@ -12,7 +12,7 @@ reparacion_view= Blueprint ('Reparacion', __name__)
 @reparacion_view.route('/reparaciones/')
 @reparacion_view.route('/reparaciones/<int:page>')
 def reparacion(page=1):
-    limit = 5
+    limit = 8
     offset = limit * page - limit  
 
     reparaciones = []  
@@ -38,8 +38,8 @@ def reparacion(page=1):
             )
             reparaciones.append(reparacion_obj)
 
-    total_reparacion = len(reparaciones)
-    pages = total_reparacion // limit
+    total_cels = len(reparaciones)
+    pages = total_cels // (total_cels//3)  
     return render_template('reparacion/reparaciones.html', reparaciones=reparaciones, pages=pages)
 
 @reparacion_view.route('/admin/listareparaciones/')
@@ -97,7 +97,7 @@ def agregar_reparacion():
             comentarios=form.comentarios.data,
             repimage=filename
         )
-        return redirect(url_for('Reparacion.reparacion'))
+        return redirect(url_for('Reparacion.reparacion_list'))
 
     return render_template('reparacion/add_reparacion.html', form=form)
 
@@ -136,7 +136,7 @@ def editar_reparacion(id):
             repimage=filename
         )
 
-        return redirect(url_for('Reparacion.detalle_reparacion', id_reparacion=id))
+        return redirect(url_for('Reparacion.reparacion_list', id_reparacion=id))
 
     return render_template('reparacion/editar_reparacion.html', form=form, id=id)
 
@@ -144,7 +144,7 @@ def editar_reparacion(id):
 @reparacion_view.route('/reparacion/admin/eliminar/<int:id>')
 def eliminar_reparacion(id):
     Rep.eliminar_reparacion(id)
-    return redirect(url_for('Reparacion.reparacion'))
+    return redirect(url_for('Reparacion.reparacion_list'))
 
 
 @reparacion_view.route("/reparaciones/crearcitas/", methods = ('GET','POST'))
@@ -175,7 +175,32 @@ def citas_list():
             )
             citas.append(cita_obj)
   return render_template('reparacion/citas_list.html', citas=citas)
-            
+
+@reparacion_view.route('/cita/admin/eliminar/<int:id>')
+def eliminar_cita(id):
+    Cita.eliminar_reparacion(id)
+    return redirect(url_for('Reparacion.citas_list'))
+
+@reparacion_view.route('/cita/admin/editar/<int:id>', methods=['GET', 'POST'])
+def editar_cita(id):
+    cita = Cita.get(id)
+    form = CreateCita(obj=cita)
+
+    if form.validate_on_submit():
+      
+        Rep.actualizar_reparacion(
+            id_cita=id,
+            email_cliente=form.email_cliente.data,
+            dispositivo=form.dispositivo.data,
+            fecha=form.fecha.data
+           
+        )
+
+        return redirect(url_for('Reparacion.citas_list', id_cita=id))
+
+    return render_template('reparacion/citas.html', form=form, id=id)
+    
+
 
                         
 

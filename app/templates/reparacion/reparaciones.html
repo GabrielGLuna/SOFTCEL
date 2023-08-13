@@ -4,15 +4,20 @@
     Reparaciones
 {% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
+{% endblock %}
+
+
 {% block body %}
-    <h1>Telefonos a reparar</h1>
-   
+<div id="titulo"><h1 id="titulo_art">REPARACIONES</h1></div>    
+   <button class="boton"><a href="{{ url_for('Reparacion.citas') }}">Agendar Cita</a></button>
     <br>
-    <div class="card-container">
+    <div class="seccion">
         {% for reparacion in reparaciones %}
         <a href="{{ url_for('Reparacion.detalle_reparacion', id_reparacion=reparacion.id_reparacion) }}">
             <div class="card">
-                <img src="{{ url_for('static', filename='images/reparaciones/' + reparacion.repimage) }}" alt="">
+                <img src="{{ url_for('static', filename='images/reparaciones/' + reparacion.repimage) }}" alt="" class="img_articulo">
                 <h2>{{ reparacion.nombre }}</h2>
                 <p>Costo: ${{ reparacion.costo }}</p>
                 <p>Daño: {{ reparacion.caracteristicas }}</p>
@@ -21,5 +26,11 @@
             </div>
         </a>
         {% endfor %}
+        
     </div>
+    {% for i in range(pages) %}
+    
+<a href="{{ url_for('celulares.celulares', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
+    
+{% endfor %}
 {% endblock %}

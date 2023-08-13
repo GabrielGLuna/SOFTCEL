@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block  body %}
-    
+<div id="titulo"><h1 id="titulo_art">CELULARES</h1></div>    
+
 <section class="seccion">
     {% for cel in cels %}
     <a href="{{ url_for('celulares.celular_cli',  id=cel.id) }}">
@@ -22,7 +23,12 @@
     </div>
     </a>
     {% endfor %}
+   
 </section>
+{% for i in range(pages) %}
+<a href="{{ url_for('celulares.celulares_cli', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
+{% endfor %}
+
 
 
 {% endblock %}

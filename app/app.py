@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, session, request, url_for, redirect, flash
 
 from flask_mysqldb import MySQL,MySQLdb
@@ -11,6 +12,8 @@ from views.soporte_views import soporte_views
 from views.reparacion_views import reparacion_view
 
 app = Flask(__name__)
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)),'static', 'images', 'reparaciones')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = 'my secret key'
 app.secret_key = 'ismontana'  # Cambia esto por una clave secreta real
 db = pymysql.connect(host='localhost', user='root', password='', db='softcell')

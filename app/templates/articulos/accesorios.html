@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-<div id="titulo"><h1 id="titulo_art">ARTICULOS</h1></div>
+<div id="titulo"><h1 id="titulo_art">ACCESORIOS</h1></div>
            
 
      <section class="seccion">
@@ -26,6 +26,6 @@
             {% endfor %}
      </section>
             {% for i in range(pages) %}
-        <a href="{{ url_for('articulos.accesorios', page=(i + 1)) }}">{{ i + 1 }}</a>
+        <a href="{{ url_for('articulos.accesorios', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
             {% endfor %}
         {% endblock %}

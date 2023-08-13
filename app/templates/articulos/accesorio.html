@@ -2,28 +2,21 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulo.css') }}">
+
 {% endblock %}
 
 {% block body %}
 
-<div class="articulo_card">
-    <div class="articulo">{{ accesorio.categoria }} </div>
-    <div class="articulo">{{ accesorio.tipo }}</div>
-    <div class="articulo">{{ accesorio.color }}</div>
-    <div class="articulo">{{ accesorio.stock }}</div>
-    <div class="articulo">{{ accesorio.especificacionExtra }}</div>
-    <div class="articulo">{{ accesorio.precio }}</div>
+<div class="tarjeta">
+    <div class="item">{{ accesorio.categoria }} </div>
+    <div class="item">{{ accesorio.tipo }}</div>
+    <div class="item">{{ accesorio.color }}</div>
+    <div class="item">{{ accesorio.stock }}</div>
+    <div class="item">{{ accesorio.especificacionExtra }}</div>
+    <div class="item">{{ accesorio.precio }}</div>
     <img src="{{ url_for('static', filename='images/Accesorios/' + accesorio.image) }}" alt="" width="300px">
-    <a href="{{ url_for('articulos.update_acc', id=accesorio.id) }}">
-        <i class="fa fa-pencil">EDITAR</i>
-    </a>
-    <form action="{{ url_for('articulos.delete_acc', id=accesorio.id) }}" method="post">
-        <button type="submit" onclick="return confirm('Seguro?')">
-            <i class="fa fa-trash">DELETE</i>
-        </button>
-    </form>
-    <p>hola</p>
-    
+ 
 
 </div>
 {% endblock %}

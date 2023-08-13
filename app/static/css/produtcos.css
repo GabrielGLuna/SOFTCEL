@@ -5,28 +5,38 @@
     grid-template-columns: repeat(4,25%);
     grid-template-rows: repeat(2,50%);
 }
+.seccion_articulos{
+    width: 90%;
+    margin: 2.5%;
+    display: grid;
+    grid-template-columns: repeat(5,20%);
+    grid-template-rows: repeat(1,100%);
+}
 .card{
-    background-color: aliceblue;
-    border: 1px solid black;
+    background-color: #6644AA;
+    
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: auto;
     height: 400px;
     margin: 2.5%;
+    text-align: center;
+    border-radius: 4%;
 }
 
 .seccion .card:nth-child(1){
     grid-column: 1 / 1;
     grid-row: 1 / 1;
-    background-color: aqua;
+   
 }
 .seccion .card:nth-child(2){
     grid-column: 2/2;
     grid-row: 1/1;
-    background-color: blue;
+   
 }
 .seccion .card:nth-child(3){
     grid-column: 3/3;
     grid-row: 1/1;
-    background-color: blueviolet;
+   
 }
 .seccion .card:nth-child(4){
     grid-column: 4/4;
@@ -35,17 +45,17 @@
 .seccion .card:nth-child(5){
     grid-column: 1 / 1;
     grid-row: 2 / 2;
-    background-color: aqua;
+    
 }
 .seccion .card:nth-child(6){
     grid-column: 2/2;
     grid-row: 2/2;
-    background-color: blue;
+
 }
 .seccion .card:nth-child(7){
     grid-column: 3/3;
     grid-row: 2/2;
-    background-color: blueviolet;
+    
 }
 .seccion .card:nth-child(8){
     grid-column: 4/4;
@@ -53,7 +63,136 @@
 }
 .img_articulo{
     justify-content: center;
-    margin: 5%;
+    margin-top: 5%;
+
     width: 90%;
-    height: 150px;
+    height: 175px;
+    border-radius: 5%;
+}
+.seccion .vermas{
+    grid-column: 5/5;
+}
+.vermas{
+    background-color: white;
+    border: 1px solid #888888;
+    width: auto;
+    height: 400px;
+    color: black;
+    margin: 2.5%;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 120%;
+}
+#titulo{
+    width: 100%;
+    text-align: center;
+}
+#titulo_art{
+    padding-top: 2%;
+    text-align: center;
+    color: #444444;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.boton{
+    width: 20%; /* Cambio el ancho del botón */
+    background-color: #ae00ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 5%;
+}
+
+
+form {
+    text-align: center;
+}
+
+/* Estilos para las etiquetas de formulario (labels) */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 2%;
+}
+
+/* Estilos para los campos de entrada de texto */
+input[type="text"],
+input[type="email"],
+input[type="password"]
+input[type="datetime"] {
+    
+    width: 30%; /* Cambio el ancho de los campos */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Esquinas redondeadas */
+    font-size: 16px;
+    transition: border-color 0.3s;
+/* Estilos para las etiquetas de formulario (labels) */
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #00c3ff;
+}
+
+input[type="submit"] {
+    width: 20%; /* Cambio el ancho del botón */
+    background-color: #ae00ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 5%;
+    margin-bottom: 15%;
+}
+input[type="submit"]:hover {
+    background-color: #35eb81;
+    color: black;
+}
+/* Estilos para los enlaces */
+table{
+  width: 80%;
+  margin: 10%;
+}
+.btn_editar{
+    background-color: #00c3ff;
+    border: none;
+}
+.btn_delete{
+background-color: red;
+border: none;
+}
+
+td{
+    font-size: larger;
+    border: 1px solid #444444;
+}
+
+th{
+    font-size: larger;
+    border: 3px solid #444444;
+}
+#btn_ins_rep{
+    align-self: center;
+    border-bottom: 0;
+}
+
+.paginas {
+    display: inline-block ;
+    color: #444444;
+    margin-left: 50%;
+    margin: 1%;
+    background-color: aliceblue;
+    padding: 2%;
 }

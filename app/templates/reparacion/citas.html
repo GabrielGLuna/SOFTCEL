@@ -1,13 +1,16 @@
 {% extends 'index_cliente.html' %} 
  
-
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
+{% endblock %}
 
 {% block  body %}
-  <form  method="post">
+<section class="form_secc">
+  <form  method="post" class="forma">
       
       {{ form.csrf_token }}
         
-      <div>
+      <div class="fsc">
         {{ form.email_cliente.label }}
         {{ form.email_cliente() }}
         {% if form.email_cliente.errors %}
@@ -17,7 +20,7 @@
         {% endif %}
       </div>
         
-        <div>
+        <div class="fsc">
           {{ form.dispositivo.label }}
           {{ form.dispositivo() }}
           {% if form.dispositivo.errors %}
@@ -27,7 +30,7 @@
           {% endif %}
         </div>
         
-        <div>
+        <div class="fsc">
           {{ form.fecha.label }}
           {{ form.fecha() }}
           {% if form.fecha.errors %}
@@ -43,6 +46,7 @@
         </div>
         
   </form>   
+</section>
 
 {% endblock %}
 
