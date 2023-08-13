@@ -11,3 +11,8 @@ class CreateCita(FlaskForm):
     fecha = DateField('fecha', validators=[DataRequired()])
     submit = SubmitField('Guardar')
 
+class UpdateCita(FlaskForm):
+    email_cliente = StringField('email_cliente', validators=[DataRequired()])
+    dispositivo = StringField('dispositivo', validators=[DataRequired()])
+    fecha = DateField('fecha', validators=[DataRequired()])
+    submit = SubmitField('Guardar')

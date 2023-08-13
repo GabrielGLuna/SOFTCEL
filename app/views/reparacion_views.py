@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, url_for, redirect, request, curren
 from models.reparacion import Rep, mydb
 from werkzeug.utils import secure_filename
 from forms.add_reparacion import AddReparacionForm
-from forms.citas_form import CreateCita
+from forms.citas_form import CreateCita, UpdateCita
 from models.citas import Cita
 
 
@@ -156,7 +156,7 @@ def citas():
       fecha = form.fecha.data
       cita = Cita(email_cliente=email_cliente, dispositivo=dispositivo, fecha=fecha)
       cita.save()
-      return redirect(url_for('reparaciones.citas'))
+      return redirect(url_for('Reparacion.reparacion'))
     return render_template('reparacion/citas.html', form=form)
 
 @reparacion_view.route('/admin/listacitas/')
@@ -178,25 +178,27 @@ def citas_list():
 
 @reparacion_view.route('/cita/admin/eliminar/<int:id>')
 def eliminar_cita(id):
-    Cita.eliminar_reparacion(id)
+    Cita.eliminar_cita(id)
     return redirect(url_for('Reparacion.citas_list'))
 
-@reparacion_view.route('/cita/admin/editar/<int:id>', methods=['GET', 'POST'])
+@reparacion_view.route('/cita/admin/editar_cita/<int:id>', methods=['GET', 'POST'])
 def editar_cita(id):
     cita = Cita.get(id)
-    form = CreateCita(obj=cita)
+    form = UpdateCita(obj=cita)
 
     if form.validate_on_submit():
+        cita.email_cliente=form.email_cliente.data
+        cita.dispositivo=form.dispositivo.data
+        cita.fecha=form.fecha.data
       
-        Rep.actualizar_reparacion(
-            id_cita=id,
-            email_cliente=form.email_cliente.data,
-            dispositivo=form.dispositivo.data,
-            fecha=form.fecha.data
-           
-        )
-
+        cita.save()
         return redirect(url_for('Reparacion.citas_list', id_cita=id))
+    form.email_cliente.data = cita.email_cliente
+    form.dispositivo.data = cita.dispositivo
+    form.fecha.data = cita.fecha
+    
+  
+
 
     return render_template('reparacion/citas.html', form=form, id=id)
     
