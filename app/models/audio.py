@@ -22,7 +22,7 @@ class Audio :
             with mydb.cursor() as cursor:
                
                 sql = "INSERT INTO audio(marca, modelo, conexion, tipo, stock, precio, image) VALUES(%s, %s, %s, %s, %s, %s, %s)"
-                val = (self.marca, self.modelo, self.conexion, self.tipo, self.stock, self.precio, self.image, self.id)
+                val = (self.marca, self.modelo, self.conexion, self.tipo, self.stock, self.precio, self.image)
                 cursor.execute(sql, val)
                 mydb.commit()
                 self.id = cursor.lastrowid
@@ -31,7 +31,7 @@ class Audio :
             with mydb.cursor() as cursor:
                 sql = 'UPDATE audio SET marca = %s, modelo = %s, conexion =%s, tipo = %s, stock = %s, precio = %s, image = %s'
                 sql += 'WHERE idAudio = %s'
-                val = (self.marca, self.modelo, self.conexion, self.tipo, self.stock, self.precio, self.image, self.id)
+                val = (self.marca, self.modelo, self.conexion, self.tipo, self.stock, self.precio, self.image)
                 cursor.execute(sql, val)
                 mydb.commit()
                 return self.id

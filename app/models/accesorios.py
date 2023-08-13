@@ -22,7 +22,7 @@ class Accesorio:
             with mydb.cursor() as cursor:
                
                 sql = "INSERT INTO accesorios(categoria, color, tipo, stock, especificacionExtra, precio, image) VALUES(%s, %s, %s, %s, %s, %s, %s)"
-                val = (self.categoria, self.color, self.tipo, self.stock, self.especificacionExtra, self.precio, self.image, self.id)
+                val = (self.categoria, self.color, self.tipo, self.stock, self.especificacionExtra, self.precio, self.image)
                 cursor.execute(sql, val)
                 mydb.commit()
                 self.id = cursor.lastrowid
@@ -31,7 +31,7 @@ class Accesorio:
             with mydb.cursor() as cursor:
                 sql = 'UPDATE accesorios SET categoria = %s, color = %s, tipo =%s, stock = %s, especificacionExtra = %s, precio = %s, image = %s'
                 sql += 'WHERE idAcc = %s'
-                val = (self.categoria, self.color, self.tipo, self.stock, self.especificacionExtra, self.precio, self.image, self.id)
+                val = (self.categoria, self.color, self.tipo, self.stock, self.especificacionExtra, self.precio, self.image)
                 cursor.execute(sql, val)
                 mydb.commit()
                 return self.id
@@ -74,7 +74,7 @@ class Accesorio:
             return accesorios
         
     @staticmethod
-    def get_all(limit=10, page=1):
+    def get_all(limit=8, page=1):
         offset = limit * page - limit
         accesorios = []
         with mydb.cursor(dictionary=True) as cursor:

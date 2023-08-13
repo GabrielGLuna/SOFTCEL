@@ -3,9 +3,14 @@
 {% block title %}
 Productos
 {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articulo.css') }}">
+{% endblock %}
 
 {% block body %}
-<h1>Crea </h1>
+<div id="titulo"><h1 id="titulo_art">INSERTAR ACCESORIO</h1></div>
 <form method="post" enctype="multipart/form-data">
     {{ form.csrf_token }}
     <div>

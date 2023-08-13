@@ -21,8 +21,8 @@ class Celular:
         if self.id is None:
             with mydb.cursor() as cursor:
                
-                sql = "INSERT INTO celulares(idCel,marca, modelo, color, stock, almacenamiento, condicion,idProveedor,precio, image) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                val = (self.marca, self.modelo, self.color, self.stock, self.almacenamiento, self.condicion, self.idProveedor,self.precio ,self.image,self.id)
+                sql = "INSERT INTO celulares(marca, modelo, color, stock, almacenamiento, condicion,idProveedor,precio, image) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                val = (self.marca, self.modelo, self.color, self.stock, self.almacenamiento, self.condicion, self.idProveedor,self.precio ,self.image)
                 cursor.execute(sql, val)
                 mydb.commit()
                 self.id = cursor.lastrowid
@@ -31,7 +31,7 @@ class Celular:
             with mydb.cursor() as cursor:
                 sql = 'UPDATE celulares SET marca = %s, modelo = %s, color =%s, stock = %s, almacenamiento = %s, condicion = %s, idProveedor= %s, precio=%s, image=%s'
                 sql += 'WHERE idCel = %s'
-                val = (self.marca, self.modelo, self.color, self.stock, self.almacenamiento, self.condicion, self.idProveedor,self.precio ,self.image ,self.id)
+                val = (self.marca, self.modelo, self.color, self.stock, self.almacenamiento, self.condicion, self.idProveedor,self.precio ,self.image )
                 cursor.execute(sql, val)
                 mydb.commit()
                 return self.id

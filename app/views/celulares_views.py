@@ -75,6 +75,6 @@ def insert_celular():
                             
                             )
         celular.save()
-        return redirect(url_for('home.home'))
+        return redirect(url_for('celulares.insert_celular'))
 
     return render_template('celulares/insertar_cel.html', form=form)

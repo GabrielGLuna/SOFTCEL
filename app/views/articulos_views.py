@@ -88,6 +88,34 @@ def crear_accesorio():
 
     return render_template('articulos/insertar_acc.html', form=form)
 
+@articulos_views.route("/articulos/crear_audio",  methods=['GET', 'POST'])
+def crear_audio():
+    form = CreateAudioForm()
+    
+    if form.validate_on_submit():
+        marca = form.marca.data
+        modelo = form.modelo.data
+        conexion = form.conexion.data
+        tipo = form.tipo.data
+        stock = form.stock.data
+        precio = form.precio.data
+        f = form.image.data
+        image = ""
+        if f:
+            image = save_image(f, 'images/Audio_img')
+        audio = Audio(marca=marca, 
+                          modelo=modelo,
+                          conexion=conexion,
+                          tipo=tipo,
+                          stock=stock,
+                          precio=precio,
+                          image=image)
+        audio.save()
+        flash ('Listo!')
+        return redirect(url_for('articulos.crear_audio'))
+
+    return render_template('articulos/insertar_audio.html', form=form)
+
 @articulos_views.route('/articulos/<int:id>/accesorio/')
 def accesorio(id):
     accesorio = Accesorio.get(id)
