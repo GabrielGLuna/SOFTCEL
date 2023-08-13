@@ -15,7 +15,9 @@
        
         <ul class="navegador">
            <a href="{{ url_for('home.home_admin') }}"><img src="{{ url_for('static', filename='images/arbol.jpg') }}" alt="imagen_nav" id="imagen_nav"></a>
-            <li><a href="#">Inventario</a></li>
+            <li><a href="{{ url_for('articulos.accesorios_list', page=1) }}">Accesorios</a></li>
+            <li><a href="{{ url_for('articulos.audios_list', page=1) }}">Audios</a></li>
+            <li><a href="{{ url_for('celulares.celulares_list', page=1) }}">Celulares</a></li>
             <li><a href="{{ url_for('Reparacion.citas_list') }}">CITAS</a></li>
             <li><a href="{{ url_for('Reparacion.reparacion_list') }}">REPARACIONES</a></li>
             

@@ -31,7 +31,7 @@ class Accesorio:
             with mydb.cursor() as cursor:
                 sql = 'UPDATE accesorios SET categoria = %s, color = %s, tipo =%s, stock = %s, especificacionExtra = %s, precio = %s, image = %s'
                 sql += 'WHERE idAcc = %s'
-                val = (self.categoria, self.color, self.tipo, self.stock, self.especificacionExtra, self.precio, self.image)
+                val = (self.categoria, self.color, self.tipo, self.stock, self.especificacionExtra, self.precio, self.image, self.id)
                 cursor.execute(sql, val)
                 mydb.commit()
                 return self.id

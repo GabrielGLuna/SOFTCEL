@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'index_admin.html' %}
 
 {% block title %}
 Celulares
@@ -25,10 +25,7 @@ Celulares
         {{ form.color.label }}
         {{ form.color() }}
     </div>
-    <div>
-        {{ form.idCel.label }}
-        {{ form.idCel() }}
-    </div>
+
    
     <div>
         {{ form.stock.label }}

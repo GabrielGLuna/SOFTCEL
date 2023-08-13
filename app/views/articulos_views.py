@@ -44,6 +44,14 @@ def accesorios_cli(page=1):
     
     return render_template('articulos/accesorios_cli.html',accs=accs, pages=pages)
 
+@articulos_views.route("/admin/listaaccesorios/<int:page>")
+def accesorios_list(page=1):
+    limit = 8
+    accs = Accesorio.get_all(limit=limit, page=page)
+    total_aud=Accesorio.count()
+    pages= total_aud//(total_aud//3)
+    return render_template('articulos/accesorios_list.html',accs=accs, pages=pages)
+
 @articulos_views.route("/audios/<int:page>")
 def audios(page=1):
     limit = 8
@@ -59,6 +67,14 @@ def audios_cli(page=1):
     total_aud=Audio.count()
     pages= total_aud//(limit//3)
     return render_template('articulos/audios_cli.html',auds=auds, pages=pages)
+
+@articulos_views.route("/admin/audios/<int:page>")
+def audios_list(page=1):
+    limit = 8
+    auds = Audio.get_all(limit=limit, page=page)
+    total_aud=Audio.count()
+    pages= total_aud//(total_aud//3)
+    return render_template('articulos/audios_list.html',auds=auds, pages=pages)
 
 @articulos_views.route("/articulos/crear_accesorio",  methods=['GET', 'POST'])
 def crear_accesorio():
@@ -84,7 +100,7 @@ def crear_accesorio():
                           image=image)
         accesorio.save()
         flash ('Listo!')
-        return redirect(url_for('articulos.crear_accesorio'))
+        return redirect(url_for('articulos.accesorios_list', page=1))
 
     return render_template('articulos/insertar_acc.html', form=form)
 
@@ -112,7 +128,7 @@ def crear_audio():
                           image=image)
         audio.save()
         flash ('Listo!')
-        return redirect(url_for('articulos.crear_audio'))
+        return redirect(url_for('articulos.audios_list', page=1))
 
     return render_template('articulos/insertar_audio.html', form=form)
 
@@ -148,14 +164,14 @@ def delete_acc(id):
     accesorio = Accesorio.get(id)
     if accesorio is None: abort(404)
     accesorio.delete()
-    return redirect(url_for('articulos.articulos'))
+    return redirect(url_for('articulos.accesorios_list',page=1))
 
 @articulos_views.route('/product/<int:id>/delete_aud/', methods=['POST'])
 def delete_aud(id):
     audio = Audio.get(id)
     if audio is None: abort(404)
     audio.delete()
-    return redirect(url_for('articulos.articulos'))
+    return redirect(url_for('articulos.audios_list', page=1))
 
 @articulos_views.route('/products/<int:id>/update_acc/', methods=('GET', 'POST'))
 def update_acc(id):
@@ -175,7 +191,7 @@ def update_acc(id):
             image = save_image(f, 'images/Accesorios')
             accesorio.image = image
         accesorio.save()
-        return redirect(url_for('articulos.articulos'))
+        return redirect(url_for('articulos.accesorios_list', page=1))
     form.categoria.data = accesorio.categoria
     form.tipo.data = accesorio.tipo
     form.stock.data = accesorio.stock
@@ -204,7 +220,7 @@ def update_audio(id):
             image = save_image(f, 'images/Audio')
             audio.image = image
         audio.save()
-        return redirect(url_for('articulos.articulos'))
+        return redirect(url_for('articulos.audios_list', page=1))
     form.marca.data = audio.marca
     form.modelo.data= audio.modelo
     form.tipo.data = audio.tipo

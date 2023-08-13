@@ -75,7 +75,19 @@ nav li a:hover {
 .contenido{
     margin-top: 5%;
 }
-
+.btn {
+    color: #e6ccef;
+    display: block;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    background-color: #4b0081;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -5px black;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+}
 footer{
     text-align: center;
        background-color: #222222;
@@ -89,4 +101,125 @@ footer{
 footer h2{
     height: 100%;
 
+}
+table form {
+    display: inline-block;
+}
+
+table a {
+    text-decoration: none;
+}
+
+
+.btn:hover {
+box-shadow: inset 0 0 0 50px #D80286;
+}
+.form-container input {
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.all{
+    display: grid;
+    place-items: center;
+}
+
+.prod-container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #b443ff;
+    border-radius: 15px;
+}
+
+.prod-container div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.prod-container label {
+    font-weight: bold;
+}
+
+.prod-container input,
+.prod-container select {
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #000000;
+}
+
+.prod-container .boton {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.prod-container .boton input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4b0081;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#categories {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #categories td, #categories th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #categories tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #categories tr:hover {background-color: #ddd;}
+  
+  #categories th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #8f06ff;
+    color: white;
+  }
+  .btn {
+    color: #e6ccef;
+    display: block;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    background-color: #4b0081;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -5px black;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+}
+.btn_editar{
+    background-color: #00c3ff;
+    border: none;
+ 
+}
+.btn_delete{
+background-color: red;
+border: none;
+
+}
+.btn_editar{
+    color: white;
+}
+.btn_delete{
+    color: white;
+}
+#titulo{
+    width: 100%;
+    text-align: center;
+}
+#titulo_art{
+    padding-top: 2%;
+    text-align: center;
+    color: #444444;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }

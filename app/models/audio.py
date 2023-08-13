@@ -31,7 +31,7 @@ class Audio :
             with mydb.cursor() as cursor:
                 sql = 'UPDATE audio SET marca = %s, modelo = %s, conexion =%s, tipo = %s, stock = %s, precio = %s, image = %s'
                 sql += 'WHERE idAudio = %s'
-                val = (self.marca, self.modelo, self.conexion, self.tipo, self.stock, self.precio, self.image)
+                val = (self.marca, self.modelo, self.conexion, self.tipo, self.stock, self.precio, self.image, self.id)
                 cursor.execute(sql, val)
                 mydb.commit()
                 return self.id

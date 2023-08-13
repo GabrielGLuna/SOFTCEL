@@ -3,6 +3,7 @@ from wtforms import StringField, SubmitField, FloatField, IntegerField,TextAreaF
 from wtforms.validators import DataRequired, NumberRange
 from flask_wtf.file import FileField, FileAllowed
 
+
 from models.celulares import Celular
 
 class CreateCelularForm(FlaskForm):
@@ -17,7 +18,6 @@ class CreateCelularForm(FlaskForm):
     condicion = StringField('condicion', validators=[DataRequired()])
     idProveedor = StringField('idProveedor', validators=[DataRequired()])
     precio = FloatField('precio', validators=[DataRequired(), NumberRange(min=0.0, max=None)])
-    idCel = SelectField('Marcas', choices=[])
     image = FileField('Imagen de Producto', 
     validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Solo imagenes!')])
     submit = SubmitField('Guardar')

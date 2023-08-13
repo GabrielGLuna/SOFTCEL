@@ -3,14 +3,13 @@
 {% block title %}
 Categories
 {% endblock title %}
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
-{% endblock %}
+
 
 {% block body %}
 <div id="titulo"><h1 id="titulo_art">LISTA DE REPARACIONES</h1></div>    
-<button class="boton" id="btn_ins_rep"><a href="{{ url_for('Reparacion.agregar_reparacion') }}" class="btn btn-primary">Agregar dispositivo</a></button>
-    <table >
+
+<a href="{{ url_for('Reparacion.agregar_reparacion') }}" class="btn">Agregar dispositivo</a>
+    <table id="categories">
         <thead>
             <tr>
                 <th>ID reparacion</th>

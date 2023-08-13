@@ -27,6 +27,15 @@ def celulares_cli(page=1):
     
     return render_template('/celulares/celulares_cli.html', cels=cels, pages=pages)
 
+@celulares_views.route("/admin/celulares_list/")
+def celulares_list(page=1):
+    limit =8
+    cels = Celular.get_all(limit=limit, page=page)
+    total_cels = Celular.count()
+    pages = total_cels // (total_cels//3)
+    return render_template('/celulares/celulares_list.html', pages=pages, cels=cels)
+
+
 @celulares_views.route('/celulares/<int:id>/celular/')
 def celular(id):
     celular = Celular.get(id)
@@ -44,11 +53,6 @@ def celular_cli(id):
 @celulares_views.route("/celulares/insertarcelular/", methods=['GET', 'POST'])
 def insert_celular():
     form = CreateCelularForm()
-    celulares = Celular.get_all()
-    cels = [(-1, '')]
-    for celular in celulares:
-        cels.append((celular.id, celular.marca))
-    form.idCel.choices = cels
 
     if form.validate_on_submit():
         marca = form.marca.data
@@ -71,10 +75,47 @@ def insert_celular():
                             condicion=condicion,
                             idProveedor=idProveedor,
                             precio=precio,
-                            image=image
-                            
-                            )
+                            image=image)
         celular.save()
-        return redirect(url_for('celulares.insert_celular'))
+      
+
+        return redirect(url_for('celulares.celulares_list'))
 
     return render_template('celulares/insertar_cel.html', form=form)
+
+@celulares_views.route('/celulares/<int:id>/updatecel', methods=('GET', 'POST'))
+def updatecel(id):
+    form = UpdateCelularForm()
+    cel = Celular.get(id)
+    if cel is None:
+        abort(404)
+    if form.validate_on_submit():
+        cel.modelo=form.marca.data
+        cel.color=form.modelo.data
+        cel.stock=form.stock.data
+        cel.almacenamiento=form.almacenamiento.data
+        cel.condicion=form.condicion.data
+        cel.idProveedor=form.idProveedor.data
+        cel.precio=form.precio.data
+        f = form.image.data
+        if f:
+            image = save_image(f, 'images/Celulares')
+            cel.image = image
+        cel.save()
+        return redirect(url_for('celulares.celulares_list'))
+    form.marca.data = cel.marca
+    form.modelo.data = cel.modelo
+    form.color.data = cel.color
+    form.stock.data = cel.stock
+    form.almacenamiento.data = cel.almacenamiento
+    form.condicion.data = cel.condicion
+    form.idProveedor.data = cel.idProveedor
+    form.precio.data = cel.precio
+    image = cel.image
+    return render_template('celulares/insertar_cel.html', form=form, image=image)
+
+@celulares_views.route('/celulares/<int:id>/deletecel/', methods=['POST'])
+def deletecel(id):
+    Celular.delete_celular(id)
+
+    return redirect(url_for('celulares.celulares_list'))
