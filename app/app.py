@@ -8,7 +8,8 @@ from views.home_views import home_views
 from views.articulos_views import articulos_views
 from views.celulares_views import celulares_views
 from views.soporte_views import soporte_views
-from views.reparaciones_views import reparaciones_views
+from views.reparacion_views import reparacion_view
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'my secret key'
 app.secret_key = 'ismontana'  # Cambia esto por una clave secreta real
@@ -18,7 +19,7 @@ app.register_blueprint(home_views)
 app.register_blueprint(articulos_views)
 app.register_blueprint(celulares_views)
 app.register_blueprint(soporte_views)
-app.register_blueprint(reparaciones_views)
+app.register_blueprint(reparacion_view)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -42,7 +43,7 @@ def dashboard():
     if 'id_rol' in session:
         id_rol = session['id_rol']
         if id_rol == 1:
-            return render_template('admin.html')
+            return render_template('home/home_admin.html')
         elif id_rol == 2:
             return render_template('cajero.html')
         elif id_rol == 3:

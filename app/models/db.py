@@ -5,6 +5,6 @@ def get_connection():
         host="localhost",
         user="root",
         password="",
-        database="softcell"
+        database="softcel"
     )
     return mydb

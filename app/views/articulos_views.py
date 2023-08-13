@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, abort
+from flask import Blueprint, render_template, redirect, url_for, abort, flash
 import traceback
 
 articulos_views = Blueprint('articulos',__name__)
@@ -23,11 +23,16 @@ def articulos_cli():
     auds = Audio.get_all()
     return render_template('articulos/articulos_cli.html',accs=accs, auds = auds)
 
-@articulos_views.route("/accesorios")
-def accesorios():
-    accs = Accesorio.get_all()
+@articulos_views.route("/accesorios/<int:page>")
+def accesorios(page=1):
+    limit = 8
+
+    accs = Accesorio.get_all(limit=limit, page=page)
+    total_acc = Accesorio.count()
+    pages = total_acc // (total_acc//2)
+   
     
-    return render_template('articulos/accesorios.html',accs=accs)
+    return render_template('articulos/accesorios.html',accs=accs, pages=pages)
 
 @articulos_views.route("/accesorios/cli")
 def accesorios_cli():
@@ -47,15 +52,10 @@ def audios_cli():
     
     return render_template('articulos/audios_cli.html',auds=auds)
 
-@articulos_views.route("/articulos/crear_accesorio")
+@articulos_views.route("/articulos/crear_accesorio",  methods=['GET', 'POST'])
 def crear_accesorio():
     form = CreateAccesorioForm()
-    accesorios = Accesorio.get_all()
-    accs = [(-1, '')]
-    for acc in accesorios:
-        accs.append((acc.id))
-    form.idAcc.choices = accs
-
+    
     if form.validate_on_submit():
         categoria = form.categoria.data
         tipo = form.tipo.data
@@ -75,9 +75,10 @@ def crear_accesorio():
                           precio=precio,
                           image=image)
         accesorio.save()
-        return redirect(url_for('home.home'))
+        flash ('Listo!')
+        return redirect(url_for('articulos.crear_accesorio'))
 
-    return render_template('articulos/insertar_acce.html', form=form)
+    return render_template('articulos/insertar_acc.html', form=form)
 
 @articulos_views.route('/articulos/<int:id>/accesorio/')
 def accesorio(id):

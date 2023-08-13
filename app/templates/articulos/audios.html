@@ -1,23 +1,23 @@
 {% extends 'index.html' %} 
  
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/articulos.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produtcos.css') }}">
 {% endblock %}
 
 {% block body %}
 <div id="titulo"><h1 id="titulo_art">ARTICULOS</h1></div>
            
 
-     <section class="seccion_arti">
+     <section class="seccion">
          {% for aud in auds %}
-        <div class="articulo_card"> 
+        <div class="card"> 
             <img src="{{ url_for('static', filename='images/Audio_img/' + aud.image) }}" alt="" width="300px" class="img_articulo">
-             <div class="articulo" > {{ aud.marca }} </div>
-             <div class="articulo" >{{ aud.modelo }}</div>
-             <div class="articulo">{{ aud.tipo }}</div>
-             <div class="articulo">{{ aud.conexion }}</div>
-             <div class="articulo">{{ aud.stock }}</div>
-             <div class="articulo">{{ aud.precio }}</div>
+             <div class="item" > {{ aud.marca }} </div>
+             <div class="item" >{{ aud.modelo }}</div>
+             <div class="item">{{ aud.tipo }}</div>
+             <div class="item">{{ aud.conexion }}</div>
+             <div class="item">{{ aud.stock }}</div>
+             <div class="item">{{ aud.precio }}</div>
             </div>
             {% endfor %}
         </section>

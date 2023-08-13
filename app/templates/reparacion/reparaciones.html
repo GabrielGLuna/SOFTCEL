@@ -1,0 +1,25 @@
+{% extends 'index_cliente.html' %}
+
+{% block title %}
+    Reparaciones
+{% endblock %}
+
+{% block body %}
+    <h1>Telefonos a reparar</h1>
+   
+    <br>
+    <div class="card-container">
+        {% for reparacion in reparaciones %}
+        <a href="{{ url_for('Reparacion.detalle_reparacion', id_reparacion=reparacion.id_reparacion) }}">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/reparaciones/' + reparacion.repimage) }}" alt="">
+                <h2>{{ reparacion.nombre }}</h2>
+                <p>Costo: ${{ reparacion.costo }}</p>
+                <p>Daño: {{ reparacion.caracteristicas }}</p>
+                <p>Estatus: {{ reparacion.estatus }}</p>
+               
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{% endblock %}

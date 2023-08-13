@@ -8,10 +8,14 @@ from utils.file_handler import save_image
 
 celulares_views = Blueprint('celulares',__name__)
 
-@celulares_views.route("/celulares/")
-def celulares():
-    cels = Celular.get_all()
-    return render_template('/celulares/celulares.html', cels=cels)
+@celulares_views.route("/celulares/<int:page>")
+def celulares(page=1):
+    limit = 8
+
+    cels = Celular.get_all(limit=limit, page=page)
+    total_cels = Celular.count()
+    pages = total_cels // limit
+    return render_template('/celulares/celulares.html', pages=pages, cels=cels)
 
 @celulares_views.route("/celulares_cli/")
 def celulares_cli():

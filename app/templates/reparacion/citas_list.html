@@ -1,0 +1,32 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+Categories
+{% endblock title %}
+
+{% block body %}
+
+    <table id="categories">
+        <thead>
+            <tr>
+                <th>ID_cita</th>
+                <th>email_cliente</th>
+                <th>dispositivo</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cita in citas %}
+                <tr>
+                    <td>{{ cita.id }}</td>
+                    <td>{{ cita.email_cliente }}</td>
+                    <td>{{ cita.dispositivo }}</td>
+                    <td>{{ cita.fecha }}</td>
+                
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}
+    

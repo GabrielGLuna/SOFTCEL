@@ -67,4 +67,11 @@ class Celular:
                                   image=celular["image"],
                                   id=celular["idCel"]))
             return celulares
-  
+
+    @staticmethod
+    def count():
+        with mydb.cursor(dictionary=True) as cursor:
+            sql = "SELECT count(idCel) as total FROM celulares"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result['total']

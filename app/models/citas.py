@@ -27,4 +27,28 @@ class Cita:
                 cursor.execute(sql, val)
                 mydb.commit()
                 return self.id
+            
+    @staticmethod
+    def get_all(limit=8,  page=1):
+        offset = limit * page - limit
+        citas = []
+        with mydb.cursor(dictionary=True) as cursor:
+            sql = f"SELECT * FROM citas LIMIT { limit } OFFSET { offset }"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            for cita in result:
+                citas.append(Cita( email_cliente=cita["marca"],
+                                  dispositivo=cita["modelo"],
+                                  fecha=cita["color"],
+                                  id=cita["id_cita"],
+                                  ))
+            return citas
+        
+    @staticmethod
+    def count():
+        with mydb.cursor(dictionary=True) as cursor:
+            sql = "SELECT count(idcita) as total FROM citass"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result['total']
        

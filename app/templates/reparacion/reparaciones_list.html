@@ -1,0 +1,44 @@
+{% extends 'index_admin.html' %}
+
+{% block title %}
+Categories
+{% endblock title %}
+
+{% block body %}
+<a href="{{ url_for('Reparacion.agregar_reparacion') }}" class="btn btn-primary">Agregar dispositivo</a>
+    <table >
+        <thead>
+            <tr>
+                <th>ID reparacion</th>
+                <th>nombre</th>
+                <th>caracteristicas</th>
+                <th>costo</th>
+                <th>fecha_entrega</th>
+                <th>fecha_entrega</th>
+                <th>cliente</th>
+                <th>folio</th>
+                <th>estatus</th>
+                <th>comentarios</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rep in reparaciones %}
+                <tr>
+                    <td>{{ rep.id_reparacion }}</td>
+                    <td>{{ rep.nombre }}</td>
+                    <td>{{ rep.caracteristicas }}</td>
+                    <td>{{ rep.costo }}</td>
+                    <td>{{ rep.fecha_entrada }}</td>
+                    <td>{{ rep.fecha_entrega }}</td>
+                    <td>{{ rep.cliente }}</td>
+                    <td>{{ rep.folio }}</td>
+                    <td>{{ rep.estatus }}</td>
+                    <td>{{ rep.comentarios }}</td>
+                    
+                
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+    

@@ -1,0 +1,25 @@
+{% extends 'index_cliente.html' %}
+
+{% block title %}
+Detalles de Reparación
+{% endblock %}
+
+{% block body %}
+<div>
+    <div class="detalle-card">
+    <img src="{{ url_for('static', filename='images/reparaciones/' ~ reparacion.repimage) }}" alt="Imagen de Reparación", width="300px">
+    <h1>Detalles de Reparación</h1>
+    <h2>Teléfono: {{ reparacion.nombre }}</h2>
+    <p>Daño: {{ reparacion.caracteristicas }}</p>
+    <p>Costo: ${{ reparacion.costo }}</p>
+    <p>Cliente: {{ reparacion.cliente }}</p>
+    <p>Folio: {{ reparacion.folio }}</p>
+    <p>Fecha de entrada: {{ reparacion.fecha_entrada }}</p>
+    <p>Fecha de entrega (estimada): {{ reparacion.fecha_entrega }}</p>
+    <p>Estatus: {{ reparacion.estatus }}</p>
+    <p>Comentarios: {{ reparacion.comentarios }}</p>
+    {% if reparacion.repimage %}
+    {% endif %}
+</div>
+
+{% endblock %}

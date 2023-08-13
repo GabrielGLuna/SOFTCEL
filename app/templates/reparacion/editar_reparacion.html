@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Editar Reparación
+{% endblock %}
+
+{% block content %}
+<div class="editar-reparacion">
+    <h1>Editar Reparación</h1>
+    <form method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.nombre.label }}
+            {{ form.nombre(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.caracteristicas.label }}
+            {{ form.caracteristicas(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.costo.label }}
+            {{ form.costo(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.cliente.label }}
+            {{ form.cliente(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.folio.label }}
+            {{ form.folio(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.estatus.label }}
+            {{ form.estatus(class="form-control") }}
+        </div>
+        </div>
+        <div class="form-group">
+            {{ form.fecha_entrada.label }}
+            {{ form.fecha_entrada(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.fecha_entrega.label }}
+            {{ form.fecha_entrega(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.comentarios.label }}
+            {{ form.comentarios(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.repimage.label }}
+            {{ form.repimage(class="form-control-file") }}
+        </div>
+        <div class="boton">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}
