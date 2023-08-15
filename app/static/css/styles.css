@@ -59,7 +59,7 @@ nav li a:hover {
 #imagen_nav{
     position: absolute;
     left: 0;
-    width: 5%;
+    width: 12.5%;
     height: auto;
     top: 0;
     margin-left: 8%;
@@ -207,10 +207,10 @@ background-color: red;
 border: none;
 
 }
-.btn_editar{
+.btn_editar a{
     color: white;
 }
-.btn_delete{
+.btn_delete a{
     color: white;
 }
 #titulo{
@@ -229,5 +229,8 @@ border: none;
     margin-left: 50%;
     margin: 1%;
     background-color: aliceblue;
-    padding: 2%;
+    padding: 1%;
+}
+#nav_admin{
+    margin-right: 3%;
 }

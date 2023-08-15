@@ -191,8 +191,11 @@ th{
 .paginas {
     display: inline-block ;
     color: #444444;
-    margin-left: 50%;
-    margin: 1%;
     background-color: aliceblue;
-    padding: 2%;
+    padding: 1%;
+}
+.paginador{
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left: 43%;
 }

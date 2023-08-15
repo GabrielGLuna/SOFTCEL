@@ -14,13 +14,13 @@
     <nav>
        
         <ul class="navegador">
-           <a href="{{ url_for('home.home_user') }}"><img src="{{ url_for('static', filename='images/arbol.jpg') }}" alt="imagen_nav" id="imagen_nav"></a>
-           <li><span>SOPORTE</span></li>
-           <li><span>REPARACIONES</span></li>
-            <li><a href="{{ url_for('articulos.articulos') }}">ARTICULOS</a></li>
-            <li><a href="{{ url_for('celulares.celulares', page=1) }}">CELULARES</a></li>
+           <a href="{{ url_for('home.home_user') }}"><img src="{{ url_for('static', filename='images/logo_softcel.png') }}" alt="imagen_nav" id="imagen_nav"></a>
+           <li><span>Soporte</span></li>
+           <li><span>Reparaciones</span></li>
+            <li><a href="{{ url_for('articulos.articulos') }}">Articulos</a></li>
+            <li><a href="{{ url_for('celulares.celulares', page=1) }}">Celulares</a></li>
             
-            <li><a href="{{ url_for('login') }}">LOGIN</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
         </ul>
     </nav>
     <section class="contenido">

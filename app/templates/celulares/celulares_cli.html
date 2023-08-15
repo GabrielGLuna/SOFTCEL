@@ -25,8 +25,10 @@
     {% endfor %}
    
 </section>
+<div class="paginador">
 {% for i in range(pages) %}
 <a href="{{ url_for('celulares.celulares_cli', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
+</div>
 {% endfor %}
 
 

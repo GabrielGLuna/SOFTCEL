@@ -2,3 +2,5 @@ flask
 mysql-connector-python
 flask-wtf
 email_validator
+pymysql
+flask_mysqld

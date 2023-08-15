@@ -59,10 +59,12 @@
         {% endfor %}
     </tbody>
 </table>
+<div class="paginador">
 {% for i in range(pages) %}
     
-<a href="{{ url_for('celulares.celulares', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
+<a href="{{ url_for('celulares.celulares_list', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
     
 {% endfor %}
+</div>
 {% endblock %}
 

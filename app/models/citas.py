@@ -57,7 +57,7 @@ class Cita:
     @staticmethod
     def count():
         with mydb.cursor(dictionary=True) as cursor:
-            sql = "SELECT count(idcita) as total FROM citass"
+            sql = "SELECT count(idcita) as total FROM citas"
             cursor.execute(sql)
             result = cursor.fetchone()
             return result['total']

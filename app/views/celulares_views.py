@@ -14,7 +14,7 @@ def celulares(page=1):
 
     cels = Celular.get_all(limit=limit, page=page)
     total_cels = Celular.count()
-    pages = total_cels // (total_cels//3)
+    pages = ((total_cels // limit)+ 1)
     return render_template('/celulares/celulares.html', pages=pages, cels=cels)
 
 @celulares_views.route("/celulares_cli/<int:page>")
@@ -23,7 +23,7 @@ def celulares_cli(page=1):
 
     cels = Celular.get_all(limit=limit, page=page)
     total_cels = Celular.count()
-    pages = total_cels // (total_cels//3)  
+    pages = ((total_cels // limit)+ 1)  
     
     return render_template('/celulares/celulares_cli.html', cels=cels, pages=pages)
 
@@ -32,7 +32,7 @@ def celulares_list(page=1):
     limit =8
     cels = Celular.get_all(limit=limit, page=page)
     total_cels = Celular.count()
-    pages = total_cels // (total_cels//3)
+    pages = ((total_cels // limit)+ 1)
     return render_template('/celulares/celulares_list.html', pages=pages, cels=cels)
 
 

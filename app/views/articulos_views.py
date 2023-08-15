@@ -29,7 +29,7 @@ def accesorios(page=1):
 
     accs = Accesorio.get_all(limit=limit, page=page)
     total_acc = Accesorio.count()
-    pages = total_acc // (total_acc//3)
+    pages = ((total_acc // limit)+ 1)
    
     
     return render_template('articulos/accesorios.html',accs=accs, pages=pages)
@@ -39,7 +39,7 @@ def accesorios_cli(page=1):
     limit = 8
     accs = Accesorio.get_all(limit=limit, page=page)
     total_acc = Accesorio.count()
-    pages = total_acc // (total_acc//3)
+    pages = ((total_acc // limit)+ 1)
    
     
     return render_template('articulos/accesorios_cli.html',accs=accs, pages=pages)
@@ -48,8 +48,8 @@ def accesorios_cli(page=1):
 def accesorios_list(page=1):
     limit = 8
     accs = Accesorio.get_all(limit=limit, page=page)
-    total_aud=Accesorio.count()
-    pages= total_aud//(total_aud//3)
+    total_acc=Accesorio.count()
+    pages = ((total_acc // limit)+ 1)
     return render_template('articulos/accesorios_list.html',accs=accs, pages=pages)
 
 @articulos_views.route("/audios/<int:page>")
@@ -57,7 +57,7 @@ def audios(page=1):
     limit = 8
     auds = Audio.get_all(limit=limit, page=page)
     total_aud=Audio.count()
-    pages= total_aud//(total_aud//3)
+    pages = ((total_aud // limit)+ 1)
     return render_template('articulos/audios.html',auds=auds, pages=pages)
 
 @articulos_views.route("/audios/cli/<int:page>")
@@ -65,7 +65,7 @@ def audios_cli(page=1):
     limit = 8
     auds = Audio.get_all(limit=limit, page=page)
     total_aud=Audio.count()
-    pages= total_aud//(limit//3)
+    pages = ((total_aud // limit)+ 1)
     return render_template('articulos/audios_cli.html',auds=auds, pages=pages)
 
 @articulos_views.route("/admin/audios/<int:page>")
@@ -73,7 +73,7 @@ def audios_list(page=1):
     limit = 8
     auds = Audio.get_all(limit=limit, page=page)
     total_aud=Audio.count()
-    pages= total_aud//(total_aud//3)
+    pages = ((total_aud // limit)+ 1)
     return render_template('articulos/audios_list.html',auds=auds, pages=pages)
 
 @articulos_views.route("/articulos/crear_accesorio",  methods=['GET', 'POST'])
@@ -217,7 +217,7 @@ def update_audio(id):
    
         f = form.image.data
         if f:
-            image = save_image(f, 'images/Audio')
+            image = save_image(f, 'images/Audio_img')
             audio.image = image
         audio.save()
         return redirect(url_for('articulos.audios_list', page=1))

@@ -12,7 +12,7 @@
      <section class="seccion_articulos">
          {% for acc in accs %}
         <div class="card"> 
-            <a href="{{ url_for('articulos.accesorio', id=acc.id) }}" class="btn">
+            <a href="{{ url_for('articulos.accesorio', id=acc.id) }}" >
             <img src="{{ url_for('static', filename='images/Accesorios/' + acc.image) }}" alt="" width="300px" class="img_articulo">
              <div class="articulo" ><p>${{ acc.precio }}</p> </div>
              <div class="articulo">{{ acc.categoria }}</div>
@@ -38,7 +38,7 @@
         <section class="seccion_articulos">
             {% for aud in auds %}
             <div class="card"> 
-                <a href="{{ url_for('articulos.audio', id=aud.id) }}" class="btn">
+                <a href="{{ url_for('articulos.audio', id=aud.id) }}">
 
                 <img src="{{ url_for('static', filename='images/Audio_img/' + aud.image) }}" alt="" width="300px" class="img_articulo">
                 <div class="articulo">{{ aud.id }} </div>

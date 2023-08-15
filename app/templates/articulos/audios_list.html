@@ -60,9 +60,10 @@
         {% endfor %}
     </tbody>
 </table>
+<div class="paginador">
 {% for i in range(pages) %}
         <a href="{{ url_for('articulos.audios_list', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
             {% endfor %}
-
+</div>
 
 {% endblock %}

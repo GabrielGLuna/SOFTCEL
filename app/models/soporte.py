@@ -25,7 +25,7 @@ class Soporte:
         if self.id is None:
             with mydb.cursor() as cursor:
                
-                sql = "INSERT INTO soporte(email_sop, tel_sop, queja_sop) VALUES(%s, %s, %s,)"
+                sql = "INSERT INTO soporte(email_sop, tel_sop, queja_sop) VALUES(%s, %s, %s)"
                 val = (self.email_sop, self.tel_sop, self.queja_sop)
                 cursor.execute(sql, val)
                 mydb.commit()
@@ -40,3 +40,25 @@ class Soporte:
                 mydb.commit()
                 return self.id
             
+    @staticmethod
+    def get_all(limit=15, page=1):
+        offset = limit * page - limit
+        quejas = []
+        with mydb.cursor(dictionary=True) as cursor:
+            sql = f"SELECT *  FROM soporte LIMIT { limit } OFFSET { offset }"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            for sop in result:
+                quejas.append(Soporte(email_sop=sop["email_sop"],
+                                  tel_sop=sop["tel_sop"],
+                                  queja_sop=sop["queja_sop"],
+                                  id=sop["id_sop"]
+                                  ) )
+            return quejas
+        
+    @staticmethod
+    def eliminar_queja(id):
+        with mydb.cursor() as cursor:
+            sql = "DELETE FROM soporte WHERE id_sop = %s"
+            cursor.execute(sql, (id,))
+            mydb.commit()

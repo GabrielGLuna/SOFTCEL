@@ -16,7 +16,7 @@ UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)),'static'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = 'my secret key'
 app.secret_key = 'ismontana'  # Cambia esto por una clave secreta real
-db = pymysql.connect(host='localhost', user='root', password='', db='softcell')
+db = pymysql.connect(host='localhost', user='root', password='', db='softcel')
 
 app.register_blueprint(home_views)
 app.register_blueprint(articulos_views)

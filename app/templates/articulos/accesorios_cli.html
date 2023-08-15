@@ -11,7 +11,7 @@
      <section class="seccion">
          {% for acc in accs %}
         <div class="card"> 
-            <a href="{{ url_for('articulos.accesorio_cli', id=acc.id) }}" class="btn">
+            <a href="{{ url_for('articulos.accesorio_cli', id=acc.id) }}" >
             <img src="{{ url_for('static', filename='images/Accesorios/' + acc.image) }}" alt="" width="300px" class="img_articulo">
              <div class="articulo" > {{ acc.precio }} </div>
              <div class="articulo" >{{ acc.id }}</div>
@@ -25,7 +25,9 @@
             
             {% endfor %}
         </section>
+        <div class="paginador">
         {% for i in range(pages) %}
-        <a href="{{ url_for('articulos.accesorios_cli', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
+            <a href="{{ url_for('articulos.accesorios_cli', page=(i + 1)) }}" class="paginas" >{{ i + 1 }}</a>
             {% endfor %}
+        </div>
         {% endblock %}

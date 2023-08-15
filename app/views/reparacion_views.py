@@ -9,7 +9,7 @@ from models.citas import Cita
 
 reparacion_view= Blueprint ('Reparacion', __name__)
 
-@reparacion_view.route('/reparaciones/')
+
 @reparacion_view.route('/reparaciones/<int:page>')
 def reparacion(page=1):
     limit = 8
@@ -39,7 +39,7 @@ def reparacion(page=1):
             reparaciones.append(reparacion_obj)
 
     total_cels = len(reparaciones)
-    pages = total_cels // (total_cels//3)  
+    pages = ((total_cels // limit)+ 1)
     return render_template('reparacion/reparaciones.html', reparaciones=reparaciones, pages=pages)
 
 @reparacion_view.route('/admin/listareparaciones/')
@@ -163,7 +163,7 @@ def citas():
 def citas_list():
   citas = []  
   with mydb.cursor(dictionary=True) as cursor:
-        sql = f"select * from citas "
+        sql = f"SELECT * FROM citas "
         cursor.execute(sql)
         result = cursor.fetchall()
 

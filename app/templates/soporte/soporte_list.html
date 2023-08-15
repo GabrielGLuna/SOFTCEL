@@ -1,0 +1,41 @@
+{% extends 'index_admin.html' %} 
+ 
+{% block title %}
+    Celulares
+{% endblock %}
+
+
+
+{% block  body %}
+<div id="titulo"><h1 id="titulo_art">LISTA DE CELULARES</h1></div> 
+<div class="head">
+    <a href="{{ url_for('celulares.insert_celular') }}" class="btn">Agregar celular</a>
+</div>
+
+<table id="categories">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email del Cliente</th>
+            <th>Telefono de Cliente</th>
+            <th>Queja</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for queja in quejas %}
+            <tr>
+                
+                <td>{{ queja.id }}</td>
+                <td>{{ queja.email_sop }}</td>
+                <td>{{ queja.tel_sop }}</td>
+                <td>{{ queja.queja_sop }}</td>
+                <td><button class="btn_delete"><a href="{{ url_for('soporte.eliminar_queja', id=queja.id) }}">Eliminar</a></button></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
